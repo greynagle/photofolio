@@ -1,9 +1,11 @@
 import React from 'react';
+import Main from './main/main'
 
 function App() {
   return (
     <main className='App'>
-      {/* content goes here */}
+	  <Main/>
+
     </main>
   );
 }
