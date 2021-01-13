@@ -9,20 +9,34 @@ class App extends Component {
 		super(props)
 	}
 
+	renderNavRoutes() {
+        return (
+            <>
+                <Route exact path="/" component={Home} />
+                {/* <Route path="/pdm" component={PDM} />
+                <Route path="/mfg" component={MFG} />
+                <Route path="/routing" component={Routing} /> */}
+            </>
+        );
+    }
+
     render() {
         const value = {};
         return (
             <ApiContext.Provider value={value}>
                 <div className="App">
-                    <nav className="App_nav"></nav>
                     <header className="App_header">
                         <h1>
                             <Link to="/">Photofolio</Link>{" "}
                         </h1>
+						<nav className="App_nav">{this.renderNavRoutes()}</nav>
                     </header>
                     <main className="App_main">
-						The Main part
+						Main area
 					</main>
+					<footer className="App_footer">
+						footer
+					</footer>
                 </div>
             </ApiContext.Provider>
         );
