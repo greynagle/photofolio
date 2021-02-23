@@ -1,0 +1,12 @@
+.contacts{
+	width:100%;
+	display:flex;
+	justify-content:space-around;
+}
+
+.contacts a{
+	width:auto;
+	color: #000;
+	size: 47pt
+
+}
