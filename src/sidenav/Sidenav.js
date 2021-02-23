@@ -1,15 +1,25 @@
 import React, { Component } from "react";
-import "./Sidenav.css";
+import "./SideNav.css";
 import { Route, Link } from "react-router-dom";
 
-class Header extends Component {
+class SideNav extends Component {
     render() {
         return (
-            <h1>
-                <Link to="/">Photofolio</Link>{" "}
-            </h1>
+            <nav>
+                <ul className="side-link-list">
+                    <li className="side-link">
+                        <Link to={`/bio`}>Bio</Link>
+                    </li>
+                    <li className="side-link">
+                        <Link to={'/projects'}>Projects</Link>
+                    </li>
+					<li className="side-link">
+						<Link to={'/contact'}>Contact</Link>
+					</li>
+                </ul>
+            </nav>
         );
     }
 }
 
-export default Header;
+export default SideNav;
