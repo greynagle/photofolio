@@ -1,3 +1,7 @@
+div.nav-menu {
+	display:flex;
+}
+
 .side-link-list a {
 	color: #000;
 	text-decoration-line: none;

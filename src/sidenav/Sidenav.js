@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./SideNav.css";
-import {Button} from 'material-ui/core';
-import Menu, { MenuItem } from 'material-ui/core';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Button, Menu, MenuItem } from "@material-ui/core";
 import { Route, Link } from "react-router-dom";
 
 const timeoutLength = 300;
@@ -19,8 +20,9 @@ class SideNav extends Component {
         this.setState({ open: true, anchorEl: event.currentTarget });
     };
 
-    handleClose = () => {
-        this.setState({ mouseOverButton: false, mouseOverMenu: false });
+    handleClose = (event) => {
+        console.log(event.target)
+		this.setState({ mouseOverButton: false, mouseOverMenu: false });
     };
 
     enterButton = () => {
@@ -50,7 +52,7 @@ class SideNav extends Component {
         const open = this.state.mouseOverButton || this.state.mouseOverMenu;
 
         return (
-            <div>
+            <div className='nav-menu'>
                 <Button
                     aria-owns={this.state.open ? "simple-menu" : null}
                     aria-haspopup="true"
@@ -58,7 +60,8 @@ class SideNav extends Component {
                     onMouseEnter={this.enterButton}
                     onMouseLeave={this.leaveButton}
                 >
-                    Open Menu
+					<FontAwesomeIcon icon={faBars} size={'2x'}/>
+                    
                 </Button>
                 <Menu
                     id="simple-menu"
@@ -70,9 +73,15 @@ class SideNav extends Component {
                         onMouseLeave: this.leaveMenu,
                     }}
                 >
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={(e) => this.handleClose(e)}>
+                        <Link to={`/bio`}>Bio</Link>
+                    </MenuItem>
+                    <MenuItem onClick={(e) => this.handleClose(e)}>
+                        <Link to={"/projects"}>Projects</Link>
+                    </MenuItem>
+                    <MenuItem onClick={(e) => this.handleClose(e)}>
+                        <Link to={"/contact"}>Contact</Link>
+                    </MenuItem>
                 </Menu>
             </div>
         );
@@ -80,3 +89,17 @@ class SideNav extends Component {
 }
 
 export default SideNav;
+
+{
+    /* <ul className="side-link-list">
+    <li className="side-link">
+        <Link to={`/bio`}>Bio</Link>
+    </li>
+    <li className="side-link">
+        <Link to={"/projects"}>Projects</Link>
+    </li>
+    <li className="side-link">
+        <Link to={"/contact"}>Contact</Link>
+    </li>
+</ul>; */
+}
