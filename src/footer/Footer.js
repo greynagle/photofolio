@@ -12,7 +12,6 @@ class Footer extends Component {
     render() {
         return (
             <>
-                My Links:
                 <nav className="contacts">
                     <a
                         href="https://www.instagram.com/grey.nagle/"

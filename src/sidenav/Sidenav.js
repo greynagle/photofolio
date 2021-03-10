@@ -17,7 +17,9 @@ class SideNav extends Component {
     };
 
     handleClick = (event) => {
-        this.setState({ open: true, anchorEl: event.currentTarget });
+        this.setState({ open: true, 
+		anchorEl: event.currentTarget 
+		});
     };
 
     handleClose = (event) => {
