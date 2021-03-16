@@ -16,8 +16,8 @@ class Main extends Component {
 
     handleClick = (event) => {
         const clickId = event.target.id;
-        this.setState(prevstate => ({
-            clicked: { [clickId]: prevstate.clicked[clickId] ? false: true },
+        this.setState((prevstate) => ({
+            clicked: { [clickId]: prevstate.clicked[clickId] ? false : true },
             anchorEl: event.currentTarget,
         }));
     };
@@ -43,16 +43,23 @@ class Main extends Component {
         // const imageList = this.state.imageList
         return (
             <div
-                className={`picture ${this.state.mouseOverImage["test"] && !this.state.clicked["test"] && 'curvedarrow'}`}
+                className={`picture ${
+                    this.state.mouseOverImage["test"] &&
+                    !this.state.clicked["test"] &&
+                    "curvedarrow"
+                }`}
                 id="1"
                 onMouseEnter={this.enterImage}
                 onMouseLeave={this.leaveImage}
             >
-                <h3 id="test" onClick={this.handleClick}>
-                    test
-					test
-					test
-                </h3>
+                <img
+                    id="test"
+                    src="./000086760025.jpg"
+                    alt="mushrooms on log"
+                    width="500"
+                    height="600"
+                    onClick={this.handleClick}
+                ></img>
                 {this.state.clicked["test"] && <p>clicked</p>}
             </div>
         );
