@@ -1,1 +1,1 @@
-This project is mostly to keep me sharp, and tangentially meant to serve as a way for me to make a photo portfolio to display some of the fruits of my hobby.
+This project is mostly to keep me sharp and tangentially is meant to serve as a way for me to make a photo portfolio to display some of the fruits of my hobby.
