@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Main.css";
+import image from "./mush.jpg"
 
 const timeoutLength = 300;
 
@@ -54,13 +55,13 @@ class Main extends Component {
             >
                 <img
                     id="test"
-                    src="./000086760025.jpg"
-                    alt="mushrooms on log"
-                    width="500"
-                    height="600"
+                    src={image}
+                    alt="mushers on log"
+                    width="200"
                     onClick={this.handleClick}
-                ></img>
+                />
                 {this.state.clicked["test"] && <p>clicked</p>}
+				
             </div>
         );
     }
