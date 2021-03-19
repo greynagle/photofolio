@@ -5,7 +5,6 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import { Route, Link } from "react-router-dom";
 
-const timeoutLength = 300;
 
 class SideNav extends Component {
     state = {
@@ -18,30 +17,11 @@ class SideNav extends Component {
         }));
     };
 
-    // handleClose = (event) => {
-    //     console.log(event.target);
-    //     this.setState({ mouseOverButton: false, mouseOverMenu: false });
-    // };
-
-    // enterMenu = () => {
-    //     this.setState({ mouseOverMenu: true });
-    // };
-
-    // leaveMenu = () => {
-    //     setTimeout(() => {
-    //         this.setState({ mouseOverMenu: false });
-    //     }, timeoutLength);
-    // };
-
     render() {
-        // Calculate open state based on mouse location
-        // const open = this.state.mouseOverButton || this.state.mouseOverMenu;
 
         return (
             <div className="nav-menu">
                 <Button
-                    // aria-owns={this.state.open ? "simple-menu" : null}
-                    // aria-haspopup="true"
                     onClick={this.handleClick}
                 >
                     <FontAwesomeIcon icon={faBars} size={"2x"} />

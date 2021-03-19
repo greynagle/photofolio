@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Main.css";
 import image from "./mush.jpg";
 
-const timeoutLength = 300;
 
 class Main extends Component {
     constructor(props) {
