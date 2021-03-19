@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Main.css";
-import image from "./mush.jpg"
+import image from "./mush.jpg";
 
 const timeoutLength = 300;
 
@@ -16,6 +16,7 @@ class Main extends Component {
     }
 
     handleClick = (event) => {
+        event.persist();
         const clickId = event.target.id;
         this.setState((prevstate) => ({
             clicked: { [clickId]: prevstate.clicked[clickId] ? false : true },
@@ -33,6 +34,7 @@ class Main extends Component {
     };
 
     enterImage = (event) => {
+        event.persist();
         this.setState({ mouseOverImage: { [event.target.id]: true } });
     };
 
@@ -43,25 +45,18 @@ class Main extends Component {
     render() {
         // const imageList = this.state.imageList
         return (
-            <div
-                className={`picture ${
-                    this.state.mouseOverImage["test"] &&
-                    !this.state.clicked["test"] &&
-                    "curvedarrow"
-                }`}
-                id="1"
-                onMouseEnter={this.enterImage}
-                onMouseLeave={this.leaveImage}
-            >
-                <img
+            <div className="container">
+                <img src={image} alt="mushers on log" width="200" />
+                <div
+                    className={!this.state.clicked["test"] && "overlay"}
                     id="test"
-                    src={image}
-                    alt="mushers on log"
-                    width="200"
                     onClick={this.handleClick}
-                />
+                >
+                    <span className={!this.state.clicked["test"] && "text"}>
+                        Fungi
+                    </span>
+                </div>
                 {this.state.clicked["test"] && <p>clicked</p>}
-				
             </div>
         );
     }
