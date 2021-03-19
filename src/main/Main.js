@@ -46,17 +46,27 @@ class Main extends Component {
         // const imageList = this.state.imageList
         return (
             <div className="container">
-                <img src={image} alt="mushers on log" width="200" />
+                <img
+                    id="test"
+                    src={image}
+                    alt="mushers on log"
+                    width="200"
+                    onClick={this.handleClick}
+                />
                 <div
-                    className={!this.state.clicked["test"] && "overlay"}
+                    className={this.state.clicked["test"] ? null : "overlay"}
                     id="test"
                     onClick={this.handleClick}
                 >
-                    <span className={!this.state.clicked["test"] && "text"}>
+                    <span
+                        className={
+                            this.state.clicked["test"] ? "hidden" : "text"
+                        }
+                    >
                         Fungi
                     </span>
                 </div>
-                {this.state.clicked["test"] && <p>clicked</p>}
+                {this.state.clicked["test"] && <p className="description">clicked</p>}
             </div>
         );
     }

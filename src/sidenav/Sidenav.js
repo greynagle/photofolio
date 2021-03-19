@@ -9,82 +9,51 @@ const timeoutLength = 300;
 
 class SideNav extends Component {
     state = {
-        anchorEl: null,
-
-        // Keep track of whether the mouse is over the button or menu
-        mouseOverButton: false,
-        mouseOverMenu: false,
+        clicked: false,
     };
 
-    handleClick = (event) => {
-        this.setState({ open: true, 
-		anchorEl: event.currentTarget 
-		});
+    handleClick = () => {
+        this.setState((prevstate) => ({
+            clicked: prevstate.clicked ? false : true,
+        }));
     };
 
-    handleClose = (event) => {
-        console.log(event.target)
-		this.setState({ mouseOverButton: false, mouseOverMenu: false });
-    };
+    // handleClose = (event) => {
+    //     console.log(event.target);
+    //     this.setState({ mouseOverButton: false, mouseOverMenu: false });
+    // };
 
-    enterButton = () => {
-        this.setState({ mouseOverButton: true });
-    };
+    // enterMenu = () => {
+    //     this.setState({ mouseOverMenu: true });
+    // };
 
-    leaveButton = () => {
-        // Set a timeout so that the menu doesn't close before the user has time to
-        // move their mouse over it
-        setTimeout(() => {
-            this.setState({ mouseOverButton: false });
-        }, timeoutLength);
-    };
-
-    enterMenu = () => {
-        this.setState({ mouseOverMenu: true });
-    };
-
-    leaveMenu = () => {
-        setTimeout(() => {
-            this.setState({ mouseOverMenu: false });
-        }, timeoutLength);
-    };
+    // leaveMenu = () => {
+    //     setTimeout(() => {
+    //         this.setState({ mouseOverMenu: false });
+    //     }, timeoutLength);
+    // };
 
     render() {
         // Calculate open state based on mouse location
-        const open = this.state.mouseOverButton || this.state.mouseOverMenu;
+        // const open = this.state.mouseOverButton || this.state.mouseOverMenu;
 
         return (
-            <div className='nav-menu'>
+            <div className="nav-menu">
                 <Button
-                    aria-owns={this.state.open ? "simple-menu" : null}
-                    aria-haspopup="true"
+                    // aria-owns={this.state.open ? "simple-menu" : null}
+                    // aria-haspopup="true"
                     onClick={this.handleClick}
-                    onMouseEnter={this.enterButton}
-                    onMouseLeave={this.leaveButton}
                 >
-					<FontAwesomeIcon icon={faBars} size={'2x'}/>
-                    
+                    <FontAwesomeIcon icon={faBars} size={"2x"} />
                 </Button>
-                <Menu
-                    id="simple-menu"
-                    anchorEl={this.state.anchorEl}
-                    open={open}
-                    onClose={this.handleClose}
-                    MenuListProps={{
-                        onMouseEnter: this.enterMenu,
-                        onMouseLeave: this.leaveMenu,
-                    }}
-                >
-                    <MenuItem onClick={(e) => this.handleClose(e)}>
+
+                {this.state.clicked && (
+                    <nav className="hamburger">
                         <Link to={`/bio`}>Bio</Link>
-                    </MenuItem>
-                    <MenuItem onClick={(e) => this.handleClose(e)}>
                         <Link to={"/projects"}>Projects</Link>
-                    </MenuItem>
-                    <MenuItem onClick={(e) => this.handleClose(e)}>
                         <Link to={"/contact"}>Contact</Link>
-                    </MenuItem>
-                </Menu>
+                    </nav>
+                )}
             </div>
         );
     }
