@@ -32,14 +32,14 @@ class Main extends Component {
         this.setState({ mouseOverMenu: true });
     };
 
-    enterImage = (event) => {
-        event.persist();
-        this.setState({ mouseOverImage: { [event.target.id]: true } });
-    };
+    // enterImage = (event) => {
+    //     event.persist();
+    //     this.setState({ mouseOverImage: { [event.target.id]: true } });
+    // };
 
-    leaveImage = (event) => {
-        this.setState({ mouseOverImage: { [event.target.id]: false } });
-    };
+    // leaveImage = (event) => {
+    //     this.setState({ mouseOverImage: { [event.target.id]: false } });
+    // };
 
     render() {
         // const imageList = this.state.imageList

@@ -7,9 +7,25 @@ import SideNav from "../sidenav/SideNav"
 import Main from "../main/Main";
 import Footer from "../footer/Footer";
 
+import bio from "../bio/Bio"
+// import projects from "../projects/projects"
+// import contact from "../contact/contact"
+
+
 class App extends Component {
     constructor(props) {
         super(props);
+    }
+
+	renderMainRoutes() {
+        return (
+            <>
+                <Route exact path="/" component={Main} />
+                <Route path="/bio" component={bio} />
+                {/* <Route path="/projects" component={projects} /> */}
+                {/* <Route path="/contact" component={contact} /> */}
+            </>
+        );
     }
 
     render() {
@@ -23,6 +39,7 @@ class App extends Component {
                     <main className="App-main">
                         <SideNav />
                         <Main />
+						{this.renderMainRoutes()}
                     </main>
                     <footer className="App-footer">
                         <Footer />
